@@ -1,71 +1,71 @@
-What is a REPL?
-REPL stands for: Read, Evaluate, Print, Loop 
 
-Each line is read, evaluated, the return value is then printed to the screen, and then the process repeats. 
 
-Python ships with a REPL, and you can access it by running python3.6 from your terminal. 
+============= Installing Python 3 on Debian/Ubuntu======================
+$ sudo su -
+[root] $ apt update -y
+[root] $ apt install -y \
+  wget \
+  build-essential \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libncurses5-dev \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev
 
-$ python3.6
-Python 3.6.4 (default, Jan  5 2018, 20:24:27)
-[GCC 4.8.5 20150623 (Red Hat 4.8.5-16)] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-The >>> indicates that you can type on that line. Later on, you’ll also see a ... which means that you are currently in a scoped area and will need to enter a blank line (no spaces) before it evaluates the entire code block. 
+[root] $ cd /usr/src
+[root] $ wget http://python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz
+[root] $ tar xf Python-3.6.4.tar.xz
+[root] $ cd Python-3.6.4.tar.xz
+[root] $ ./configure --enable-optimizations
+[root] $ make altinstall
+[root] $ exit
 
-The simplest use of this would be to do some math: 
+Note: make altinstall causes it to not replace the built in python executable.
 
->>> 1 + 1
-2
->>>
-2 is the return value of the expression, and it is then printed to the screen. If something doesn’t have a return value, then nothing will be printed to the screen and you’ll see the next prompt immediately. We’ll cover this later, but an example would be None: 
+Ensure that secure_path in /etc/sudoers file includes /usr/local/bin. The line should look something like this:
 
->>> None
->>>
-Lastly, to exit the REPL, you can either type exit() (the parentheses are important), or you can hit Ctrl+d on your keyboard.
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+Upgrade Pip (Might not be Necessary)
+The version of pip that we have might be up-to-date, but it’s good practice to try to update it after the installation. We need to use the pip3.6 executable because we’re working with Python 3, and we use sudo so that we can write files under the /usr/local directory.
 
-===============Creating and Running Python Scripts===============
+$ sudo pip3.6 install --upgrade pip.
 
-Creating Our First Python Script
-Let’s create our first script to write our obligatory “Hello, World!” program:
+================Histoty and Benefinits==============
 
-$ vim hello.py
-From inside this file, we can enter the lines of Python that we need. For the “Hello, World!” example we only need:
+- Created by Guido van Rossum
+- First Appearance in 1991
+- Used and supported by tech giants like Google and Youtube
+- Supported two major versions of nearly a decade.
 
-print("Hello, World!")
-There are a few different ways that we can run this file. The first is by passing it to the python3.6 CLI:
+Language Features
 
-$ python3.6 hello.py
-Hello, World!
-Setting a Shebang
-You’ll most likely want your scripts to be:
+- Object oriented Scripting Language.
+- Dynamic & Strong Type System
+- Functional Concepts ( Map, Reduce, Fileter and etc)
+- Whitespace delimited with pseudo-code like syntax.
 
-Executable from anywhere (in our $PATH).
-Executable without explicitly using the python3.6 CLI.
-Thankfully, we can set the process to interpret our scripts by setting a shebang at the top of the file: 
+Key Points About Python:
 
-hello.py
+Object-Oriented Scripting Language.
+Dynamic & strong typing system.
+Dynamic types are checked at runtime
+Strong types don’t change implicitly, can’t add 1 and "something".
+Supports functional concepts like map, reduce, filter, and list comprehension.
+Whitespace delimited (no { or } around code blocks)
+Pseudo-code like syntax
+Extremely popular language used across many different disciplines (academia, data science, scripting, web development, etc.).
+Large open source community and public package index (Pypi).
+Runs on all major operating systems (historically more of a pain to run on Windows than Unix systems). Pre-installed on most *NIX systems (usually Python 2).
+Supported by large companies such as Google & YouTube.
+Consistently high on the Tiobe Index (one of the most searched programming languages). 4th as of the time of recording this.
+Placed in the Stack Overflow Developer Survey’s top 10 for Most Popular Programming Languages, Most Loved Programming Languages, and placed number 1 as the “Most Wanted Language” (meaning it’s the language that deve
+lopers want to use the most).
 
-#!/usr/bin/env python3.6
-print("Hello, World")
-We’re not quite done; now we need to make the file executable using chmod: 
-
-$ chmod u+x hello.py
-Run the script now by using ./hello.py and we’ll see the same result. If we’d rather not have a file extension on our script, we can now remove that since we’ve put a shebang in the file mv hello.py hello, and running ./hello will still result in the same thing. 
-
-Adding Scripts to Our $PATH
-Now we need to make sure that we can put this in our $PATH. For this course, we’ll be using a bin directory in our $HOME folder to store our custom scripts, but scripts can go into any directory that is in your $PATH. 
-
-Let’s create a bin directory and move our script: 
-
-$ mkdir ~/bin
-$ mv hello ~/bin/
-Here’s how we add this directory to the $PATH in our .bashrc (the .bashrc for this course already contains this): 
-
-$ export PATH=$HOME/bin:$PATH
-Finally, run the hello script from our $PATH: 
-
-$ hello
-Hello, World!
+====================================================
 
 
 
