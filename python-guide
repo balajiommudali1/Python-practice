@@ -34,6 +34,18 @@ The version of pip that we have might be up-to-date, but it’s good practice to
 
 $ sudo pip3.6 install --upgrade pip.
 
+
+Install in Mac
+
+1. Download and install Homebrew from https://brew.sh
+2. `brew cask install atom`
+3. `brew install python3`
+4. `pip3 install ipython`
+5. `brew install awscli`
+6. `brew install git`
+7. `ssh-keygen -C <email>`
+8. `ssh-add -K ~/.ssh/id_rsa`
+
 ================Histoty and Benefinits==============
 
 - Created by Guido van Rossum
