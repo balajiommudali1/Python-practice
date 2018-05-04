@@ -171,4 +171,25 @@ In the even that we want to check multiple potential conditions we can use the e
 name is 5 characters
 Notice that we fell into the first elif statement’s block and then the second elif block was never executed even though it was true. We can only exercise one branch in an if statement.
 
+float
+int
+abs
+bin
+round
+sum
+max
+min
+for x in range(10): print(x)
+sorted("abakjk")
+reversed(sorted("abakjk"))
+list(reversed(sorted("abakjk")))
+''.join(reversed(sorted("abakjk")))
+a_string.find('an')
+
+In [57]: "hello, {0}, and welcome to {1}". format("robin", "Python")
+Out[57]: 'hello, robin, and welcome to Python'
+
+
+
+
 
