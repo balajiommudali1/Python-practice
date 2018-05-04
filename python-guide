@@ -171,4 +171,105 @@ In the even that we want to check multiple potential conditions we can use the e
 name is 5 characters
 Notice that we fell into the first elif statement’s block and then the second elif block was never executed even though it was true. We can only exercise one branch in an if statement.
 
+===================================== Splicing, Splitting, Joining and Iterating ===================
+
+In [1]: colors = ["red", "orange", "Yellow", "Green", "Blue", "Purple"]
+
+In [2]: colors
+Out[2]: ['red', 'orange', 'Yellow', 'Green', 'Blue', 'Purple']
+
+In [3]: sentence = "Create a new branch for this commit and start a pull request
+   ...: "
+
+In [4]: sentence[0]
+Out[4]: 'C'
+
+In [5]: colors[0]
+Out[5]: 'red'
+
+In [6]: sentence[-5]
+Out[6]: 'q'
+
+In [7]: colors[1:]
+Out[7]: ['orange', 'Yellow', 'Green', 'Blue', 'Purple']
+
+In [8]: colors[1:4]
+Out[8]: ['orange', 'Yellow', 'Green']
+
+In [9]: sentence
+Out[9]: 'Create a new branch for this commit and start a pull request'
+
+
+In [10]: sentence[4:9]
+Out[10]: 'te a '
+
+In [10]: sentence[4:9]
+Out[10]: 'te a '
+
+In [11]: sentence[::2]
+Out[11]: 'Cet  e rnhfrti omtadsatapl eus'
+
+In [12]: sentence[::3
+    ...: ]
+Out[12]: 'Ca n ahotsoia a plee'
+
+In [13]: sentence[::3]
+Out[13]: 'Ca n ahotsoia a plee'
+
+In [14]: colors
+Out[14]: ['red', 'orange', 'Yellow', 'Green', 'Blue', 'Purple']
+
+In [15]:
+
+In [15]: colors[2] = 'Black'
+
+In [16]: colors
+Out[16]: ['red', 'orange', 'Black', 'Green', 'Blue', 'Purple']
+
+In [17]: colors[2:] = Green
+
+In [18]: colors[2:] = 'Green'
+
+In [19]: colors
+Out[19]: ['red', 'orange', 'G', 'r', 'e', 'e', 'n']
+
+In [20]: colors[2:] = ['Green']*4
+
+In [21]: colors
+Out[21]: ['red', 'orange', 'Green', 'Green', 'Green', 'Green']
+
+sentence.split(' ')
+Out[25]:
+['Create',
+ 'a',
+ 'new',
+ 'branch',
+ 'for',
+ 'this',
+ 'commit',
+ 'and',
+ 'start',
+ 'a',
+ 'pull',
+ 'request']
+In [32]: " - ". join(colors)
+Out[32]: 'red - orange - Yellow - Green - Blue - Purple'
+
+In [33]: colors
+Out[33]: ['red', 'orange', 'Yellow', 'Green', 'Blue', 'Purple']
+
+In [35]: " - ". join(colors).split(" - ")
+Out[35]: ['red', 'orange', 'Yellow', 'Green', 'Blue', 'Purple']
+
+
+In [43]: for num in [12, 4, 6, 8]:
+    ...:     div = num / 2
+    ...:     print("number" + str(div) + " ")
+    ...:
+number6.0
+number2.0
+number3.0
+number4.0
+
+
 
